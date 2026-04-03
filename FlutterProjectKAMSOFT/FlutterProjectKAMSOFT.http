@@ -1,0 +1,6 @@
+@FlutterProjectKAMSOFT_HostAddress = http://localhost:5150
+
+GET {{FlutterProjectKAMSOFT_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
