@@ -11,7 +11,7 @@ namespace FlutterProjectKAMSOFT.Validation
             RuleFor(x => x.LastName).NotEmpty().WithMessage("Last name is obligatory");
             RuleFor(x => x.Pessel).GreaterThan(0).WithMessage("PESSEL has to be more than 0");
             RuleFor(x => x.DateOfBirth).LessThan(DateOnly.FromDateTime(DateTime.Now))
-                .WithMessage("You cannot be borned tomottow, idiot");
+                .WithMessage("You cannot be born tomottow, idiot");
         }
     }
 }

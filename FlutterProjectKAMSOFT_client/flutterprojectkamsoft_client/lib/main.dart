@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'screen/patient_screen.dart';
+import 'screen/DashboardScreen.dart';
 
 void main() {
-  runApp(MainApp()); 
+  runApp(const MainApp()); 
 }
 
 class MainApp extends StatelessWidget {
@@ -12,7 +12,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: PatientsScreen(), 
+      home: DashboardScreen(), 
     );
   }
 }

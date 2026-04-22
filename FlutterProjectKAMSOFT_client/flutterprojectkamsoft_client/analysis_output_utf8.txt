@@ -1,0 +1,163 @@
+﻿Analyzing text_painter.dart...
+
+  error - text_painter.dart:9:8 - Target of URI doesn't exist: 'dart:ui'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - text_painter.dart:34:8 - Target of URI doesn't exist: 'dart:ui'. Try creating the file referenced by the URI, or try using a URI for a file that does exist. - uri_does_not_exist
+  error - text_painter.dart:73:1 - Undefined name 'immutable' used as an annotation. Try defining the name or importing it from another library. - undefined_annotation
+  error - text_painter.dart:88:11 - Invalid constant value. - invalid_constant
+  error - text_painter.dart:88:11 - Undefined name 'Size'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:89:16 - Invalid constant value. - invalid_constant
+  error - text_painter.dart:93:9 - Undefined class 'Size'. Try changing the name to the name of an existing class, or creating a class with the name 'Size'. - undefined_class
+  error - text_painter.dart:118:9 - Undefined class 'TextBaseline'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBaseline'. - undefined_class
+  error - text_painter.dart:185:3 - Undefined class 'TextRange'. Try changing the name to the name of an existing class, or creating a class with the name 'TextRange'. - undefined_class
+  error - text_painter.dart:186:34 - The method 'TextPosition' isn't defined for the type 'WordBoundary'. Try correcting the name to the name of an existing method, or defining a method named 'TextPosition'. - undefined_method
+  error - text_painter.dart:298:9 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:342:32 - Undefined class 'TextBaseline'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBaseline'. - undefined_class
+  error - text_painter.dart:344:7 - Undefined name 'TextBaseline'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:345:7 - Undefined name 'TextBaseline'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:393:13 - Undefined class 'Rect'. Try changing the name to the name of an existing class, or creating a class with the name 'Rect'. - undefined_class
+  error - text_painter.dart:396:9 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:397:9 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:402:9 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:403:9 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:408:15 - The method 'Offset' isn't defined for the type '_TextLayout'. Try correcting the name to the name of an existing method, or defining a method named 'Offset'. - undefined_method
+  error - text_painter.dart:416:37 - The method 'clampDouble' isn't defined for the type '_TextLayout'. Try correcting the name to the name of an existing method, or defining a method named 'clampDouble'. - undefined_method
+  error - text_painter.dart:417:32 - The method 'clampDouble' isn't defined for the type '_TextLayout'. Try correcting the name to the name of an existing method, or defining a method named 'clampDouble'. - undefined_method
+  error - text_painter.dart:452:3 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:454:14 - Undefined name 'Offset'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:457:20 - The name 'Offset' isn't a class. Try correcting the name to match an existing class. - creation_with_non_type
+  error - text_painter.dart:461:12 - The method 'Offset' isn't defined for the type '_TextPainterLayoutCacheWithOffset'. Try correcting the name to the name of an existing method, or defining a method named 'Offset'. - undefined_method
+  error - text_painter.dart:520:8 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:522:8 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:543:9 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:548:9 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:553:27 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:554:22 - Undefined name 'Offset'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:598:5 - Undefined class 'TextAlign'. Try changing the name to the name of an existing class, or creating a class with the name 'TextAlign'. - undefined_class
+  error - text_painter.dart:598:27 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:599:5 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:609:5 - Undefined class 'Locale'. Try changing the name to the name of an existing class, or creating a class with the name 'Locale'. - undefined_class
+  error - text_painter.dart:612:5 - Undefined class 'TextHeightBehavior'. Try changing the name to the name of an existing class, or creating a class with the name 'TextHeightBehavior'. - undefined_class
+  error - text_painter.dart:644:14 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:645:5 - Undefined class 'TextAlign'. Try changing the name to the name of an existing class, or creating a class with the name 'TextAlign'. - undefined_class
+  error - text_painter.dart:645:27 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:655:5 - Undefined class 'Locale'. Try changing the name to the name of an existing class, or creating a class with the name 'Locale'. - undefined_class
+  error - text_painter.dart:658:5 - Undefined class 'TextHeightBehavior'. Try changing the name to the name of an existing class, or creating a class with the name 'TextHeightBehavior'. - undefined_class
+  error - text_painter.dart:698:14 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:699:5 - Undefined class 'TextAlign'. Try changing the name to the name of an existing class, or creating a class with the name 'TextAlign'. - undefined_class
+  error - text_painter.dart:699:27 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:709:5 - Undefined class 'Locale'. Try changing the name to the name of an existing class, or creating a class with the name 'Locale'. - undefined_class
+  error - text_painter.dart:712:5 - Undefined class 'TextHeightBehavior'. Try changing the name to the name of an existing class, or creating a class with the name 'TextHeightBehavior'. - undefined_class
+  error - text_painter.dart:844:3 - Undefined class 'TextAlign'. Try changing the name to the name of an existing class, or creating a class with the name 'TextAlign'. - undefined_class
+  error - text_painter.dart:845:3 - Undefined class 'TextAlign'. Try changing the name to the name of an existing class, or creating a class with the name 'TextAlign'. - undefined_class
+  error - text_painter.dart:846:17 - Undefined class 'TextAlign'. Try changing the name to the name of an existing class, or creating a class with the name 'TextAlign'. - undefined_class
+  error - text_painter.dart:869:3 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:870:3 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:871:21 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:956:3 - Undefined class 'Locale'. Try changing the name to the name of an existing class, or creating a class with the name 'Locale'. - undefined_class
+  error - text_painter.dart:957:3 - Undefined class 'Locale'. Try changing the name to the name of an existing class, or creating a class with the name 'Locale'. - undefined_class
+  error - text_painter.dart:958:14 - Undefined class 'Locale'. Try changing the name to the name of an existing class, or creating a class with the name 'Locale'. - undefined_class
+  error - text_painter.dart:1024:3 - Undefined class 'TextHeightBehavior'. Try changing the name to the name of an existing class, or creating a class with the name 'TextHeightBehavior'. - undefined_class
+  error - text_painter.dart:1025:3 - Undefined class 'TextHeightBehavior'. Try changing the name to the name of an existing class, or creating a class with the name 'TextHeightBehavior'. - undefined_class
+  error - text_painter.dart:1026:26 - Undefined class 'TextHeightBehavior'. Try changing the name to the name of an existing class, or creating a class with the name 'TextHeightBehavior'. - undefined_class
+  error - text_painter.dart:1039:8 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:1044:11 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1046:15 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:1048:16 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:1049:19 - Undefined name 'Offset'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1052:26 - Undefined class 'TextBox'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBox'. - undefined_class
+  error - text_painter.dart:1084:44 - Undefined class 'TextAlign'. Try changing the name to the name of an existing class, or creating a class with the name 'TextAlign'. - undefined_class
+  error - text_painter.dart:1105:29 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1168:3 - Undefined class 'Size'. Try changing the name to the name of an existing class, or creating a class with the name 'Size'. - undefined_class
+  error - text_painter.dart:1171:12 - The method 'Size' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'Size'. - undefined_method
+  error - text_painter.dart:1178:42 - Undefined class 'TextBaseline'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBaseline'. - undefined_class
+  error - text_painter.dart:1240:11 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:1322:14 - Undefined class 'Canvas'. Try changing the name to the name of an existing class, or creating a class with the name 'Canvas'. - undefined_class
+  error - text_painter.dart:1322:29 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1336:7 - Undefined class 'Size'. Try changing the name to the name of an existing class, or creating a class with the name 'Size'. - undefined_class
+  error - text_painter.dart:1362:5 - Undefined class 'Canvas'. Try changing the name to the name of an existing class, or creating a class with the name 'Canvas'. - undefined_class
+  error - text_painter.dart:1364:5 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1366:19 - The method 'Paint' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'Paint'. - undefined_method
+  error - text_painter.dart:1367:17 - Undefined name 'PaintingStyle'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1369:23 - The name 'Color' isn't a class. Try correcting the name to match an existing class. - creation_with_non_type
+  error - text_painter.dart:1370:16 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:1432:45 - Undefined class 'TextAlign'. Try changing the name to the name of an existing class, or creating a class with the name 'TextAlign'. - undefined_class
+  error - text_painter.dart:1432:66 - Undefined class 'TextDirection'. Try changing the name to the name of an existing class, or creating a class with the name 'TextDirection'. - undefined_class
+  error - text_painter.dart:1434:8 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1435:8 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1436:8 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1437:8 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1437:27 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1437:46 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1438:8 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1438:27 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1438:46 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1439:8 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1439:23 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1440:8 - Undefined name 'TextAlign'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1440:23 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1447:3 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1447:28 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1447:51 - Undefined class 'Rect'. Try changing the name to the name of an existing class, or creating a class with the name 'Rect'. - undefined_class
+  error - text_painter.dart:1459:14 - The method 'Offset' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'Offset'. - undefined_method
+  error - text_painter.dart:1462:11 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1463:43 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1463:69 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1464:43 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1464:69 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1464:87 - The method 'Offset' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'Offset'. - undefined_method
+  error - text_painter.dart:1474:31 - The method 'clampDouble' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'clampDouble'. - undefined_method
+  error - text_painter.dart:1479:12 - The method 'Offset' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'Offset'. - undefined_method
+  error - text_painter.dart:1496:32 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1496:55 - Undefined class 'Rect'. Try changing the name to the name of an existing class, or creating a class with the name 'Rect'. - undefined_class
+  error - text_painter.dart:1503:11 - Undefined class 'TextBox'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBox'. - undefined_class
+  error - text_painter.dart:1560:43 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1573:7 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1577:7 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1577:49 - Undefined name 'TextAffinity'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1578:7 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1578:49 - Undefined name 'TextAffinity'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1581:7 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1581:49 - Undefined name 'TextAffinity'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1599:63 - The method 'Offset' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'Offset'. - undefined_method
+  error - text_painter.dart:1602:11 - Undefined class 'TextRange'. Try changing the name to the name of an existing class, or creating a class with the name 'TextRange'. - undefined_class
+  error - text_painter.dart:1609:35 - The method 'TextPosition' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'TextPosition'. - undefined_method
+  error - text_painter.dart:1615:35 - The method 'TextPosition' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'TextPosition'. - undefined_method
+  error - text_painter.dart:1619:16 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:1626:7 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1627:7 - Undefined name 'TextDirection'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1629:11 - Undefined class 'TextBox'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBox'. - undefined_class
+  error - text_painter.dart:1631:15 - The method 'Offset' isn't defined for the type 'TextPainter'. Try correcting the name to the name of an existing method, or defining a method named 'Offset'. - undefined_method
+  error - text_painter.dart:1658:8 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:1664:22 - The getter 'isValid' isn't defined for the type 'TextSelection'. Try importing the library that defines 'isValid', correcting the name to the name of an existing getter, or defining a getter or field named 'isValid'. - undefined_getter
+  error - text_painter.dart:1667:11 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1669:15 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:1671:16 - The name 'TextBox' isn't a type, so it can't be used as a type argument. Try correcting the name to an existing type, or defining a type named 'TextBox'. - non_type_as_type_argument
+  error - text_painter.dart:1672:17 - The getter 'start' isn't defined for the type 'TextSelection'. Try importing the library that defines 'start', correcting the name to the name of an existing getter, or defining a getter or field named 'start'. - undefined_getter
+  error - text_painter.dart:1673:17 - The getter 'end' isn't defined for the type 'TextSelection'. Try importing the library that defines 'end', correcting the name to the name of an existing getter, or defining a getter or field named 'end'. - undefined_getter
+  error - text_painter.dart:1677:22 - Undefined name 'Offset'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1679:22 - Undefined class 'TextBox'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBox'. - undefined_class
+  error - text_painter.dart:1688:42 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1695:61 - Undefined name 'Offset'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1706:3 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1706:37 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1722:3 - Undefined class 'TextRange'. Try changing the name to the name of an existing class, or creating a class with the name 'TextRange'. - undefined_class
+  error - text_painter.dart:1722:29 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1742:3 - Undefined class 'TextRange'. Try changing the name to the name of an existing class, or creating a class with the name 'TextRange'. - undefined_class
+  error - text_painter.dart:1742:29 - Undefined class 'TextPosition'. Try changing the name to the name of an existing class, or creating a class with the name 'TextPosition'. - undefined_class
+  error - text_painter.dart:1747:67 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1763:10 - Undefined class 'TextBox'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBox'. - undefined_class
+  error - text_painter.dart:1763:32 - Undefined class 'TextBox'. Try changing the name to the name of an existing class, or creating a class with the name 'TextBox'. - undefined_class
+  error - text_painter.dart:1763:45 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1766:12 - Undefined name 'TextBox'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+  error - text_painter.dart:1790:11 - Undefined class 'Offset'. Try changing the name to the name of an existing class, or creating a class with the name 'Offset'. - undefined_class
+  error - text_painter.dart:1795:22 - Undefined name 'Offset'. Try correcting the name to one that is defined, or defining the name. - undefined_identifier
+warning - text_painter.dart:35:45 - The library 'package:flutter/services.dart' doesn't export a member with the shown name 'TextRange'. Try removing the name from the list of shown members. - undefined_shown_name
+   info - text_painter.dart:121:3 - The method '==' should not be overridden in classes not annotated with '@immutable'. Try removing the override or annotating the class with '@immutable'. - avoid_equals_and_hash_code_on_mutable_classes
+   info - text_painter.dart:133:3 - The method 'hashCode' should not be overridden in classes not annotated with '@immutable'. Try removing the override or annotating the class with '@immutable'. - avoid_equals_and_hash_code_on_mutable_classes
+   info - text_painter.dart:369:82 - Unnecessary use of a null check ('!'). Try removing the null check. - unnecessary_null_checks
+   info - text_painter.dart:1104:5 - Specify the type of a local variable when the type is non-obvious. Try adding a type annotation. - specify_nonobvious_local_variable_types
+   info - text_painter.dart:1202:5 - Specify the type of a local variable when the type is non-obvious. Try adding a type annotation. - specify_nonobvious_local_variable_types
+   info - text_painter.dart:1366:5 - Specify the type of a local variable when the type is non-obvious. Try adding a type annotation. - specify_nonobvious_local_variable_types
+   info - text_painter.dart:1452:95 - Unnecessary use of a null check ('!'). Try removing the null check. - unnecessary_null_checks
+
+159 issues found.
