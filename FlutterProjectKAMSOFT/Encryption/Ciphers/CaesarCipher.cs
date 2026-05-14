@@ -1,38 +1,33 @@
 ﻿using FluentValidation;
 using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
+using FlutterProjectKAMSOFT.Encryption.CipherFactory;
 using System.Text;
 
 namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 {
-    public class CaesarCipher
+    public class CaesarCipher : ICipher
     {
+        IValidator<CipherRequest> _validator;
         private const int DEFAULT_SHIFT = 3;
-        private readonly string _alphabet;
 
-        public CaesarCipher(CipherDataModel model, IValidator<CipherDataModel> validator)
+        public CaesarCipher(IValidator<CipherRequest> validator)
         {
-            validator.ValidateAndThrow(model);
-            _alphabet = model.Alphabet.ToUpper();
+            _validator = validator;
         }
 
-        public string Encrypt(string text, int shift = DEFAULT_SHIFT)
+        public string Encrypt(CipherRequest request)
         {
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                throw new ArgumentException("No text to encrypt was provided");
-            }
-
-            return Process(text, shift);
+            _validator.ValidateAndThrow(request);
+            int shift = request.Shift ?? DEFAULT_SHIFT;
+            return Process(request.Text, shift, request.Alphabet);
         }
-        public string Decrypt(string text, int shift = DEFAULT_SHIFT)
+        public string Decrypt(CipherRequest request)
         {
-            if (string.IsNullOrWhiteSpace(text))
-            {
-                throw new ArgumentException("No text tp decrypt was provided");
-            }
-            return Process(text, -shift);
+            _validator.ValidateAndThrow(request);
+            int shift = request.Shift ?? DEFAULT_SHIFT;
+            return Process(request.Text, -shift, request.Alphabet);
         }
-        private string Process(string text, int shift)
+        private string Process(string text, int shift, string alphabet)
         {
             StringBuilder result = new StringBuilder();
 
@@ -41,16 +36,16 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
                 bool isLower = char.IsLower(c);
                 char upperChar = char.ToUpper(c);
 
-                int index = _alphabet.IndexOf(upperChar);
+                int index = alphabet.IndexOf(upperChar);
 
                 if (index >= 0)
                 {
-                    int newIndex = (index + shift) % _alphabet.Length;
+                    int newIndex = (index + shift) % alphabet.Length;
 
                     if (newIndex < 0)
-                        newIndex += _alphabet.Length;
+                        newIndex += alphabet.Length;
 
-                    char newChar = _alphabet[newIndex];
+                    char newChar = alphabet[newIndex];
 
                     result.Append(isLower ? char.ToLower(newChar) : newChar);
                 }

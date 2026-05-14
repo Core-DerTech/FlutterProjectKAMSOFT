@@ -1,5 +1,6 @@
 using FluentValidation;
 using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
+using FlutterProjectKAMSOFT.Encryption.CipherFactory;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -12,7 +13,7 @@ services.AddCors(options => {
     options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
-services.AddTransient<IValidator<CipherDataModel>, CipherValidator>();
+services.AddTransient<IValidator<CipherRequest>, CipherValidator>();
 var app = builder.Build();
 
 app.UseCors("AllowAll");
