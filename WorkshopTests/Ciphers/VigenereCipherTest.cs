@@ -9,29 +9,11 @@ using FlutterProjectKAMSOFT.Encryption.Ciphers;
 
 namespace WorkshopTests.Ciphers
 {
-    public class CipherTest
+    public class VigenereCipherTest
     {
         [Fact]
 
-        public void CeasarCipherTest()
-        {
-            CipherValidator validator = new CipherValidator();
-            CipherDataModel model = new CipherDataModel()
-            { 
-                Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-            };
-            string textToEnctyp = "Chuj";
-
-            CaesarCipher cipher = new(model, validator);
-
-            string encryptedText = cipher.Encrypt(textToEnctyp);
-            string decryptedText = cipher.Decrypt(encryptedText);
-
-            decryptedText.Should().Be(textToEnctyp);
-        }
-        [Fact]
-
-        public void VigenereCipherTest()
+        public void VigenereCipherShouldReturnTrueForCorrectPassword()
         {
             CipherValidator validator = new CipherValidator();
             CipherDataModel model = new CipherDataModel()
@@ -44,9 +26,28 @@ namespace WorkshopTests.Ciphers
             VigenereCipher cipher = new(model, validator);
 
             string encryptedText = cipher.Encrypt(textToEnctyp);
-            string decryptedText = cipher.Decrypt(encryptedText);
+            string decryptedText = cipher.Decrypt(encryptedText, "password");
 
             decryptedText.Should().Be(textToEnctyp);
+        }
+        [Fact]
+
+        public void VigenereCipherShouldNotReturnTrueForCorrectPassword()
+        {
+            CipherValidator validator = new CipherValidator();
+            CipherDataModel model = new CipherDataModel()
+            { 
+                Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                Password = "password",
+            };
+            string textToEnctyp = "Mamma mia kurwa";
+
+            VigenereCipher cipher = new(model, validator);
+
+            string encryptedText = cipher.Encrypt(textToEnctyp);
+            string decryptedText = cipher.Decrypt(encryptedText, "asd");
+
+            decryptedText.Should().NotBe(textToEnctyp);
         }
     }
 }

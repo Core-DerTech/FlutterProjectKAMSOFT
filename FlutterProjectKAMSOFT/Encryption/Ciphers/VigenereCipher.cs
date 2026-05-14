@@ -22,22 +22,23 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
             if (string.IsNullOrWhiteSpace(text))
                 throw new ArgumentException("No text to encrypt was provided");
 
-            return Process(text, true);
+            return Process(text, _password, true);
         }
 
-        public string Decrypt(string text)
+        public string Decrypt(string text, string inputPassword)
         {
-            if (string.IsNullOrWhiteSpace(text))
+
+            if (string.IsNullOrWhiteSpace(text) || string.IsNullOrWhiteSpace(inputPassword))
                 throw new ArgumentException("No text to decrypt was provided");
 
-            return Process(text, false);
+            return Process(text, inputPassword, false);
         }
 
-        private string Process(string text, bool encrypt)
+        private string Process(string text, string insertedPassword, bool encrypt)
         {
             StringBuilder result = new StringBuilder();
             int keyIndex = 0;
-
+            string password = insertedPassword.ToUpper();
             foreach (char c in text)
             {
                 bool isLower = char.IsLower(c);
@@ -47,7 +48,7 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 
                 if (textIndex >= 0)
                 {
-                    char keyChar = _password[keyIndex % _password.Length];
+                    char keyChar = password[keyIndex % password.Length];
 
                     int keyShift = _alphabet.IndexOf(keyChar);
 

@@ -12,7 +12,7 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
         public CaesarCipher(CipherDataModel model, IValidator<CipherDataModel> validator)
         {
             validator.ValidateAndThrow(model);
-            _alphabet = model.Alphabet;
+            _alphabet = model.Alphabet.ToUpper();
         }
 
         public string Encrypt(string text, int shift = DEFAULT_SHIFT)
