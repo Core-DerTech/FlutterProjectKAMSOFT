@@ -1,13 +1,18 @@
+using FluentValidation;
+using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
+
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+services.AddControllers();
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
 
-builder.Services.AddCors(options => {
+services.AddCors(options => {
     options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
+services.AddTransient<IValidator<CipherDataModel>, CipherValidator>();
 var app = builder.Build();
 
 app.UseCors("AllowAll");
@@ -21,5 +26,4 @@ if (app.Environment.IsDevelopment())
 app.UseRouting();
 app.UseAuthorization();
 app.MapControllers();
-
 app.Run();
