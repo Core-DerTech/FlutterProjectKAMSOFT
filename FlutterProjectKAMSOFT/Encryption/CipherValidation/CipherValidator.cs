@@ -13,9 +13,13 @@ namespace FlutterProjectKAMSOFT.Ciphers.CipherValidation
             RuleFor(x => x.Alphabet)
                 .NotEmpty()
                 .WithMessage("Empty input data")
-
+                
                 .MinimumLength(MIN_ALPHABET_SYMBOLS_NUMBER)
-                .WithMessage($"Number of symbols cannot be less than {MIN_ALPHABET_SYMBOLS_NUMBER}");
+                .WithMessage($"Number of symbols cannot be less than {MIN_ALPHABET_SYMBOLS_NUMBER}")
+                .Must(a => a.Distinct().Count() == a.Length)
+                .WithMessage("Alphabet must contain unique characters"); ;
+
+
 
             RuleFor(x => x.Text)
                 .NotEmpty()
