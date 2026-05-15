@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using FlutterProjectKAMSOFT.Encryption.CipherValidation;
+using FlutterProjectKAMSOFT.Encryption.Ciphers;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -16,9 +16,10 @@ namespace FlutterProjectKAMSOFT.Processing
 
             var rules = new List<MedicalRule> {
                 new MedicalRule("GLU")
-                .WhenGreater(126, "Hyperglycemia", "Critical")
-                .WhenLess(70, "Hypoglycemia", "Warning"),
-                new MedicalRule("CHOL").WhenGreater(200, "High Cholesterol", "Warning")
+                    .WhenGreater(126, "Hyperglycemia", "Critical")
+                    .WhenLess(70, "Hypoglycemia", "Warning"),
+                new MedicalRule("CHOL")
+                    .WhenGreater(200, "High Cholesterol", "Warning")
             };
 
             var pipeline = new Pipe<ProcessingContext>()
