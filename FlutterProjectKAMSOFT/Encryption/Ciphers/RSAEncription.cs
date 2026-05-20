@@ -1,17 +1,22 @@
-﻿using System.Security.Cryptography;
+﻿using FluentValidation;
+using FlutterProjectKAMSOFT.Encryption.CipherFactory;
+using FlutterProjectKAMSOFT.Encryption.Models;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 {
-    public class RSAEncryption
+    public class RSAEncryption : ICipher<ChipherTextRequest>
     {
         private readonly RSA _rsa;
         private const int KEY_PAIR = 2048;
         public string PublicKey { get; }
         public string PrivateKey { get; }
+        private IValidator<ChipherTextRequest> _validator;
 
-        public RSAEncryption()
+        public RSAEncryption(IValidator<ChipherTextRequest> validator)
         {
+            _validator = validator;
             _rsa = RSA.Create(KEY_PAIR);
 
             PublicKey = Convert.ToBase64String(
@@ -23,12 +28,10 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
             );
         }
 
-        public string Encrypt(string text)
+        public string Encrypt(ChipherTextRequest request)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentException("Text cannot be null or empty");
-
-            byte[] data = Encoding.UTF8.GetBytes(text);
+            _validator.ValidateAndThrow(request);
+            byte[] data = Encoding.UTF8.GetBytes(request.Text);
 
             byte[] encryptedData = _rsa.Encrypt(
                 data,
@@ -38,16 +41,15 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
             return Convert.ToBase64String(encryptedData);
         }
 
-        public string Decrypt(string encryptedText)
+        public string Decrypt(ChipherTextRequest request)
         {
-            if (string.IsNullOrWhiteSpace(encryptedText))
-                throw new ArgumentException("Encrypted text cannot be null or empty");
+            _validator.ValidateAndThrow(request);
 
             byte[] encryptedData;
 
             try
             {
-                encryptedData = Convert.FromBase64String(encryptedText);
+                encryptedData = Convert.FromBase64String(request.Text);
             }
             catch
             {

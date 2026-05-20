@@ -1,21 +1,30 @@
-﻿using System.Security.Cryptography;
+﻿using FluentValidation;
+using FlutterProjectKAMSOFT.Encryption.CipherFactory;
+using FlutterProjectKAMSOFT.Encryption.Models;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 {
-    public class EncriptionSHA
+    public class EncriptionSHA : ICipher<ChipherTextRequest>
     {
-        public string Encrypt<T>(T input)
+        private IValidator<ChipherTextRequest> _validator;
+        public EncriptionSHA(IValidator<ChipherTextRequest> validator)
         {
-            if (input == null)
-                throw new ArgumentException(nameof(input));
+            _validator = validator;
+        }
 
-            string text = input.ToString()!;
+        public string Decrypt(ChipherTextRequest request)
+        {
+            throw new NotImplementedException();
+        }
 
+        public string Encrypt(ChipherTextRequest request)
+        {
+            _validator.ValidateAndThrow(request);
             byte[] hash = SHA256.HashData(
-                Encoding.UTF8.GetBytes(text)
+                Encoding.UTF8.GetBytes(request.Text)
             );
-
             return Convert.ToHexString(hash);
         }
     }

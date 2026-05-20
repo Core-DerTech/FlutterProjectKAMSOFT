@@ -1,33 +1,49 @@
 ﻿using FluentAssertions;
-using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
 using FlutterProjectKAMSOFT.Encryption.Ciphers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FlutterProjectKAMSOFT.Encryption.CipherValidation;
+using FlutterProjectKAMSOFT.Encryption.Models;
 
 namespace WorkshopTests.Ciphers
 {
     public class CaesarCipherTest
     {
         [Fact]
-
         public void CeasarCipherShouldBeCorrect()
         {
-            CipherValidator validator = new CipherValidator();
-            CipherDataModel model = new CipherDataModel()
+            CaesarRequestValidator validator = new CaesarRequestValidator();
+            CipherRequestCaesar model = new CipherRequestCaesar()
             {
+                Text = "Text to encrypt",
                 Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                Shift = 4
             };
-            string textToEnctyp = "Chuj";
+            string textToEnctyp = "Cebularzozerca";
 
-            CaesarCipher cipher = new(model, validator);
+            CaesarCipher cipher = new(validator);
 
-            string encryptedText = cipher.Encrypt(textToEnctyp);
-            string decryptedText = cipher.Decrypt(encryptedText);
+            string encryptedText = cipher.Encrypt(model);
+            string decryptedText = cipher.Decrypt(model);
 
             decryptedText.Should().Be(textToEnctyp);
+        }
+
+        [Fact]
+        public void CeasarCipherShouldNotBeCorrect()
+        {
+            CaesarRequestValidator validator = new CaesarRequestValidator();
+            CipherRequestCaesar model = new CipherRequestCaesar()
+            {
+                Text = "Text to encrypt",
+                Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                Shift = 4
+            };
+            string textToEnctyp = "Cebularzozerca";
+
+            CaesarCipher cipher = new(validator);
+
+            string encryptedText = cipher.Encrypt(model);
+
+            encryptedText.Should().NotBe(textToEnctyp);
         }
     }
 }
