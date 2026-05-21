@@ -1,27 +1,29 @@
 ﻿using FluentValidation;
 using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
 using FlutterProjectKAMSOFT.Encryption.CipherFactory;
+using FlutterProjectKAMSOFT.Encryption.CipherValidation;
+using FlutterProjectKAMSOFT.Encryption.Models;
 using System.Text;
 
 namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 {
-    public class CaesarCipher : ICipher
+    public class CaesarCipher : ICipher<CipherRequestCaesar>
     {
-        IValidator<CipherRequest> _validator;
+        IValidator<CipherRequestCaesar> _validator;
         private const int DEFAULT_SHIFT = 3;
 
-        public CaesarCipher(IValidator<CipherRequest> validator)
+        public CaesarCipher(IValidator<CipherRequestCaesar> validator)
         {
             _validator = validator;
         }
 
-        public string Encrypt(CipherRequest request)
+        public string Encrypt(CipherRequestCaesar request)
         {
             _validator.ValidateAndThrow(request);
             int shift = request.Shift ?? DEFAULT_SHIFT;
             return Process(request.Text, shift, request.Alphabet);
         }
-        public string Decrypt(CipherRequest request)
+        public string Decrypt(CipherRequestCaesar request)
         {
             _validator.ValidateAndThrow(request);
             int shift = request.Shift ?? DEFAULT_SHIFT;

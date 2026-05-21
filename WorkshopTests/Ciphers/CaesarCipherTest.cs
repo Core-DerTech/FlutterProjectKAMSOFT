@@ -1,6 +1,7 @@
 ﻿using FluentAssertions;
 using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
 using FlutterProjectKAMSOFT.Encryption.Ciphers;
+using FlutterProjectKAMSOFT.Encryption.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,16 +17,20 @@ namespace WorkshopTests.Ciphers
         public void CeasarCipherShouldBeCorrect()
         {
             CipherValidator validator = new CipherValidator();
-            CipherDataModel model = new CipherDataModel()
+            CipherRequest model = new CipherRequest()
             {
+                Text = "Text to encrypt",
                 Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+                Key = "qwer",
+                Shift = 4
+
             };
             string textToEnctyp = "Chuj";
 
-            CaesarCipher cipher = new(model, validator);
+            CaesarCipher cipher = new(validator);
 
-            string encryptedText = cipher.Encrypt(textToEnctyp);
-            string decryptedText = cipher.Decrypt(encryptedText);
+            string encryptedText = cipher.Encrypt(model);
+            string decryptedText = cipher.Decrypt(model);
 
             decryptedText.Should().Be(textToEnctyp);
         }

@@ -1,9 +1,11 @@
-﻿namespace FlutterProjectKAMSOFT.Encryption.CipherFactory
-{
-    public interface ICipher
-    {
-        string Encrypt(CipherRequest request);
+﻿using FlutterProjectKAMSOFT.Encryption.Models;
 
-        string Decrypt(CipherRequest request);
+namespace FlutterProjectKAMSOFT.Encryption.CipherFactory
+{
+    public interface ICipher<T> where T : ChipherTextRequest
+    {
+        string Encrypt(T request);
+
+        string Decrypt(T request);
     }
 }

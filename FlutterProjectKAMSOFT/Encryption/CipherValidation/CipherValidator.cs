@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using FlutterProjectKAMSOFT.Encryption.CipherFactory;
+using FlutterProjectKAMSOFT.Encryption.Models;
 
 namespace FlutterProjectKAMSOFT.Ciphers.CipherValidation
 {
