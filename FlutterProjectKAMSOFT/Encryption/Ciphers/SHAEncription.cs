@@ -6,10 +6,10 @@ using System.Text;
 
 namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 {
-    public class EncriptionSHA : ICipher<ChipherTextRequest>
+    public class SHAEncription : ICipher<ChipherTextRequest>
     {
         private IValidator<ChipherTextRequest> _validator;
-        public EncriptionSHA(IValidator<ChipherTextRequest> validator)
+        public SHAEncription(IValidator<ChipherTextRequest> validator)
         {
             _validator = validator;
         }

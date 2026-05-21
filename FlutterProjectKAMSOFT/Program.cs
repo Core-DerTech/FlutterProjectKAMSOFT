@@ -1,4 +1,5 @@
 using FluentValidation;
+using FlutterProjectKAMSOFT.Encryption.CipherFactory;
 using FlutterProjectKAMSOFT.Encryption.CipherValidation;
 using FlutterProjectKAMSOFT.Encryption.Models;
 
@@ -8,6 +9,7 @@ var services = builder.Services;
 services.AddControllers();
 services.AddEndpointsApiExplorer();
 services.AddSwaggerGen();
+services.AddScoped<CipherFactory>();
 
 services.AddCors(options => {
     options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());

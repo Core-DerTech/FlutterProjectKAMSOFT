@@ -64,27 +64,25 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
             return Encoding.UTF8.GetString(decryptedData);
         }
 
-        public string GenerateHash(string text)
+        public string GenerateHash(ChipherTextRequest request)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentException("Text cannot be null or empty");
+            _validator.ValidateAndThrow(request);
 
             byte[] hash = SHA256.HashData(
-                Encoding.UTF8.GetBytes(text)
+                Encoding.UTF8.GetBytes(request.Text)
             );
 
             return Convert.ToHexString(hash);
         }
 
-        public bool VerifyHash(string text, string expectedHash)
+        public bool VerifyHash(ChipherTextRequest request, string expectedHash)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentException("Text cannot be null or empty");
+            _validator.ValidateAndThrow(request);
 
             if (string.IsNullOrWhiteSpace(expectedHash))
                 throw new ArgumentException("Hash cannot be null or empty");
 
-            string currentHash = GenerateHash(text);
+            string currentHash = GenerateHash(request);
 
             return currentHash.Equals(
                 expectedHash,
@@ -92,12 +90,10 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
             );
         }
 
-        public string SignData(string text)
+        public string SignData(ChipherTextRequest request)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentException("Text cannot be null or empty");
-
-            byte[] data = Encoding.UTF8.GetBytes(text);
+            _validator.ValidateAndThrow(request);
+            byte[] data = Encoding.UTF8.GetBytes(request.Text);
 
             byte[] signature = _rsa.SignData(
                 data,
@@ -108,15 +104,14 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
             return Convert.ToBase64String(signature);
         }
 
-        public bool VerifySignature(string text, string signature)
+        public bool VerifySignature(ChipherTextRequest request, string signature)
         {
-            if (string.IsNullOrWhiteSpace(text))
-                throw new ArgumentException("Text cannot be null or empty");
+           _validator.ValidateAndThrow(request);
 
             if (string.IsNullOrWhiteSpace(signature))
                 throw new ArgumentException("Signature cannot be null or empty");
 
-            byte[] data = Encoding.UTF8.GetBytes(text);
+            byte[] data = Encoding.UTF8.GetBytes(request.Text);
 
             byte[] signatureBytes;
 

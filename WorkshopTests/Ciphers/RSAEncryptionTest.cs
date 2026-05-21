@@ -1,5 +1,7 @@
 ﻿using FluentAssertions;
 using FlutterProjectKAMSOFT.Encryption.Ciphers;
+using FlutterProjectKAMSOFT.Encryption.CipherValidation;
+using FlutterProjectKAMSOFT.Encryption.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,38 +15,42 @@ namespace WorkshopTests.Ciphers
         [Fact]
         public void EncryptAndDecryptShouldeturn_OriginalText()
         {
-            RSAEncryption rsa = new();
-
-            string text = "Hello Word";
-
-            string encrypted = rsa.Encrypt(text);
-
-            string decrypted = rsa.Decrypt(encrypted);
-
+            EncryptionRequestValidator validator = new EncryptionRequestValidator();
+            ChipherTextRequest model = new ChipherTextRequest()
+            {
+                Text = "Text to encrypt"
+            };
+            string text = model.Text;
+            RSAEncryption rsa = new(validator);
+            string encrypted = rsa.Encrypt(model);
+            string decrypted = rsa.Decrypt(model);
             decrypted.Should().Be(text);
         }
 
         [Fact]
         public void EncryptShouldReturnDifferentValueThanInput()
         {
-            RSAEncryption rsa = new();
-
-            string text = "JohnSmith";
-
-            string encrypted = rsa.Encrypt(text);
-
-            encrypted.Should().NotBe(text);
+            EncryptionRequestValidator validator = new EncryptionRequestValidator();
+            ChipherTextRequest model = new ChipherTextRequest()
+            {
+                Text = "Text to encrypt"
+            };
+            RSAEncryption rsa = new(validator);
+            string encrypted = rsa.Encrypt(model);
+            encrypted.Should().NotBe(model.Text);
         }
 
         [Fact]
         public void GenerateHashShouldReturnValidHash()
         {
-            RSAEncryption rsa = new();
+            EncryptionRequestValidator validator = new EncryptionRequestValidator();
+            ChipherTextRequest model = new ChipherTextRequest()
+            {
+                Text = "Text to encrypt"
+            };
+            RSAEncryption rsa = new(validator);
 
-            string text = "Hello Word";
-
-            string hash = rsa.GenerateHash(text);
-
+            string hash = rsa.GenerateHash(model);
             hash.Should().NotBeNullOrWhiteSpace();
             hash.Length.Should().Be(64);
         }
@@ -52,56 +58,58 @@ namespace WorkshopTests.Ciphers
         [Fact]
         public void VerifyHashShouldReturnTrueForValidData()
         {
-            RSAEncryption rsa = new();
-
-            string text = "JohnSmith";
-
-            string hash = rsa.GenerateHash(text);
-
-            bool result = rsa.VerifyHash(text, hash);
-
+            EncryptionRequestValidator validator = new EncryptionRequestValidator();
+            ChipherTextRequest model = new ChipherTextRequest()
+            {
+                Text = "Text to encrypt"
+            };
+            RSAEncryption rsa = new(validator);
+            string hash = rsa.GenerateHash(model);
+            bool result = rsa.VerifyHash(model, hash);
             result.Should().BeTrue();
         }
 
         [Fact]
         public void VerifyHashShouldReturnFalseFo_InvalidData()
         {
-            RSAEncryption rsa = new();
-
-            string text = "JohnSmith";
-
-            string hash = rsa.GenerateHash(text);
-
-            bool result = rsa.VerifyHash("DifferentText", hash);
-
+            EncryptionRequestValidator validator = new EncryptionRequestValidator();
+            ChipherTextRequest model = new ChipherTextRequest()
+            {
+                Text = "Text to encrypt"
+            };
+            RSAEncryption rsa = new(validator);
+            string hash = rsa.GenerateHash(model);
+            bool result = rsa.VerifyHash(model, hash);
             result.Should().BeFalse();
         }
 
         [Fact]
         public void SignDataAndVerifySignatureShouldReturnTrue()
         {
-            RSAEncryption rsa = new();
+            EncryptionRequestValidator validator = new EncryptionRequestValidator();
+            ChipherTextRequest model = new ChipherTextRequest()
+            {
+                Text = "Text to encrypt"
+            };
+            RSAEncryption rsa = new(validator);
 
-            string text = "Hello Word";
-
-            string signature = rsa.SignData(text);
-
-            bool result = rsa.VerifySignature(text, signature);
-
+            string signature = rsa.SignData(model);
+            bool result = rsa.VerifySignature(model, signature);
             result.Should().BeTrue();
         }
 
         [Fact]
         public void VerifySignatureShouldReturnFalseForModifiedText()
         {
-            RSAEncryption rsa = new();
+            EncryptionRequestValidator validator = new EncryptionRequestValidator();
+            ChipherTextRequest model = new ChipherTextRequest()
+            {
+                Text = "Text to encrypt"
+            };
+            RSAEncryption rsa = new(validator);
 
-            string text = "JohnSmith";
-
-            string signature = rsa.SignData(text);
-
-            bool result = rsa.VerifySignature("ModifiedText", signature);
-
+            string signature = rsa.SignData(model);
+            bool result = rsa.VerifySignature(model, signature);
             result.Should().BeFalse();
         }
     }
