@@ -1,6 +1,6 @@
 ﻿namespace FlutterProjectKAMSOFT.Encryption.Models
 {
-    public class CipherRequestCaesar : ChipherTextRequest
+    public class CipherRequestCaesar : AlfabetTextRequest
     {
         public int? Shift { get; set; }
     }

@@ -2,6 +2,5 @@
 {
     public interface ICipherFactory
     {
-        ICipher Create(CipherType type);
     }
 }

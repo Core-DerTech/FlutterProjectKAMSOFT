@@ -30,7 +30,7 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 
         public string Encrypt(ChipherTextRequest request)
         {
-            _validator.ValidateAndThrowAsync(request);
+            _validator.ValidateAndThrow(request);
             byte[] data = Encoding.UTF8.GetBytes(request.Text);
 
             byte[] encryptedData = _rsa.Encrypt(
@@ -43,7 +43,7 @@ namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 
         public string Decrypt(ChipherTextRequest request)
         {
-            _validator.ValidateAndThrowAsync(request);
+            _validator.ValidateAndThrow(request);
 
             byte[] encryptedData;
 
