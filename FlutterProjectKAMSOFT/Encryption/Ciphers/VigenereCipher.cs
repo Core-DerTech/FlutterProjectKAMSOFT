@@ -1,27 +1,28 @@
 ﻿using FluentValidation;
 using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
+using FlutterProjectKAMSOFT.Encryption.CipherFactory;
 using FlutterProjectKAMSOFT.Encryption.Models;
 using System.Text;
 
 namespace FlutterProjectKAMSOFT.Encryption.Ciphers
 {
-    public class VigenereCipher
+    public class VigenereCipher : ICipher<CipherRequestVigenere>
     {
-        private IValidator<CipherRequest> _validator;
+        private IValidator<CipherRequestVigenere> _validator;
 
-        public VigenereCipher(IValidator<CipherRequest> validator)
+        public VigenereCipher(IValidator<CipherRequestVigenere> validator)
         {
             _validator = validator;
         }
 
-        public string Encrypt(CipherRequest request)
+        public string Encrypt(CipherRequestVigenere request)
         {
             _validator.Validate(request);
 
             return Process(request.Text, request.Key, true, request.Alphabet);
         }
 
-        public string Decrypt(CipherRequest request)
+        public string Decrypt(CipherRequestVigenere request)
         {
             _validator.Validate(request);
             return Process(request.Text, request.Key, false, request.Alphabet);

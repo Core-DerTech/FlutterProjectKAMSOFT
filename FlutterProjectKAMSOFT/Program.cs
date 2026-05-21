@@ -1,5 +1,6 @@
 using FluentValidation;
 using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
+using FlutterProjectKAMSOFT.Encryption.Ciphers;
 using FlutterProjectKAMSOFT.Encryption.CipherValidation;
 using FlutterProjectKAMSOFT.Encryption.Models;
 
@@ -14,8 +15,8 @@ services.AddCors(options => {
     options.AddPolicy("AllowAll", p => p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 });
 
-services.AddTransient<IValidator<CipherRequestVigenere>, VigenereRequestValidator>();
 services.AddTransient<IValidator<CipherRequestCaesar>, CaesarRequestValidator>();
+services.AddTransient<IValidator<CipherRequestVigenere>, VigenereRequestValidator>();
 
 var app = builder.Build();
 
