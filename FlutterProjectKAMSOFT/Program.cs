@@ -17,6 +17,8 @@ services.AddCors(options => {
 
 services.AddTransient<IValidator<CipherRequestCaesar>, CaesarRequestValidator>();
 services.AddTransient<IValidator<CipherRequestVigenere>, VigenereRequestValidator>();
+services.AddTransient<IValidator<ChipherTextRequest>, EncryptionRequestValidator>();
+
 
 var app = builder.Build();
 
