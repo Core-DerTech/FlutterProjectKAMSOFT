@@ -1,13 +1,7 @@
 ﻿using FluentAssertions;
-using FlutterProjectKAMSOFT.Ciphers.CipherValidation;
 using FlutterProjectKAMSOFT.Encryption.Ciphers;
 using FlutterProjectKAMSOFT.Encryption.Models;
-using FlutterProjectKAMSOFT.Encryption.CipherFactory;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using FlutterProjectKAMSOFT.Encryption.CipherValidation;
 
 namespace WorkshopTests.Ciphers
 {
@@ -16,14 +10,12 @@ namespace WorkshopTests.Ciphers
         [Fact]
         public void VigenereCipherShouldReturnTrueForCorrectPassword()
         {
-            CipherValidator validator = new CipherValidator();
-            CipherRequest model = new CipherRequest()
+            VigenereRequestValidator validator = new VigenereRequestValidator();
+            CipherRequestVigenere model = new CipherRequestVigenere()
             {
                 Text = "Text to encrypt",
                 Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
                 Key = "qwer",
-                Shift = 4,
-                CipherType = CipherType.Vigenere
             };
             string textToEnctyp = "Mamma mia";
 
@@ -38,15 +30,12 @@ namespace WorkshopTests.Ciphers
         [Fact]
         public void VigenereCipherShouldNotReturnTrueForCorrectPassword()
         {
-            CipherValidator validator = new CipherValidator();
-            CipherRequest model = new CipherRequest()
+            VigenereRequestValidator validator = new VigenereRequestValidator();
+            CipherRequestVigenere model = new CipherRequestVigenere()
             {
                 Text = "Text to encrypt",
                 Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
                 Key = "qwer",
-                Shift = 4,
-                CipherType =  CipherType.Vigenere
-
             };
             string textToEnctyp = "Mamma mia";
 
