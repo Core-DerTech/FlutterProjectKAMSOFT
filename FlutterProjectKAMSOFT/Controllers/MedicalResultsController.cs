@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using FlutterProjectKAMSOFT.Processing;
 using FlutterProjectKAMSOFT.Models.DTO;
+using FlutterProjectKAMSOFT.Services;
 
 namespace FlutterProjectKAMSOFT.Controllers
 {
@@ -9,18 +10,24 @@ namespace FlutterProjectKAMSOFT.Controllers
     public class MedicalResultsController : ControllerBase
     {
         private readonly MedicalProcessingService _processingService;
+        private readonly PatientDataEncryptionService _encryptionService;
 
         private static readonly List<PatientResultDto> _database = new();
 
-        public MedicalResultsController()
+        public MedicalResultsController(PatientDataEncryptionService encryptionService)
         {
             _processingService = new MedicalProcessingService();
+            _encryptionService = encryptionService;
         }
 
         [HttpGet("dashboard")]
-        public ActionResult<List<PatientResultDto>> GetDashboard()
+        public ActionResult<List<EncryptedPatientResultDto>> GetDashboard([FromQuery] PatientEncryptionOptions encryptionOptions)
         {
-            return Ok(_database);
+            var encryptedDashboard = _database
+                .Select(patientResult => _encryptionService.EncryptPatientResult(patientResult, encryptionOptions))
+                .ToList();
+
+            return Ok(encryptedDashboard);
         }
 
         [HttpPost("submit")]

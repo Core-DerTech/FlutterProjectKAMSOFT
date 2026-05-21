@@ -4,12 +4,15 @@ import 'package:http/http.dart' as http;
 
 class ApiService {
   static const String baseUrl = 'http://localhost:5150';
-  static const String patientsEndpoint = '$baseUrl/api/PatientAppoinment/create';
-  static const String appointmentsEndpoint = '$baseUrl/appointments';
+  static const Map<String, String> encryptionQuery = {
+    'CipherType': '2',
+  };
 
   Future<List<Patient>> getPatients() async {
     try {
-      final response = await http.get(Uri.parse(patientsEndpoint));
+      final uri = Uri.parse('$baseUrl/api/PatientAppoinment/get-patient-data')
+          .replace(queryParameters: encryptionQuery);
+      final response = await http.get(uri);
 
       if (response.statusCode == 200) {
         final List<dynamic> data = jsonDecode(response.body);
@@ -26,5 +29,40 @@ class ApiService {
       print('Error fetching patients: $e');
       rethrow;
     }
+  }
+
+  Future<Patient> createAppointment({
+    required String firstName,
+    required String lastName,
+    required int pessel,
+    required DateTime dateOfBirth,
+    required int disease,
+    required String appointmentTitle,
+    required String appointmentDescription,
+  }) async {
+    final uri = Uri.parse('$baseUrl/api/PatientAppoinment/create')
+        .replace(queryParameters: encryptionQuery);
+    final response = await http.post(
+      uri,
+      headers: const {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode({
+        'firstName': firstName,
+        'lastName': lastName,
+        'pessel': pessel,
+        'dateOfBirth': dateOfBirth.toIso8601String().split('T').first,
+        'disease': disease,
+        'appointmentTitle': appointmentTitle,
+        'appointmentDescription': appointmentDescription,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      return Patient.fromJson(jsonDecode(response.body) as Map<String, dynamic>);
+    }
+
+    throw Exception('Failed to create appointment: ${response.statusCode} ${response.body}');
   }
 }
