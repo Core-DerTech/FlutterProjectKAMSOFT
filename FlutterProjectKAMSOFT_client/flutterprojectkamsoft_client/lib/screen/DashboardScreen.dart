@@ -28,7 +28,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Doctor Dashboard")),
+      appBar: AppBar(
+        title: const Text("Doctor Dashboard"),
+        actions: [
+          IconButton(
+            tooltip: 'Refresh',
+            onPressed: () {
+              setState(() {
+                _resultsFuture = _repository.fetchDashboardData();
+              });
+            },
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
+      ),
       body: FutureBuilder<List<PatientResult>>(
         future: _resultsFuture,
         builder: (context, snapshot) {
@@ -42,6 +55,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             return Center(child: Text("No patient results found."));
           }
           return ListView.builder(
+            padding: const EdgeInsets.all(12),
             itemCount: snapshot.data!.length,
             itemBuilder: (context, index) {
               final item = snapshot.data![index];
@@ -50,8 +64,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 margin: EdgeInsets.all(8),
                 color: _parseColor(item.statusColor),
                 child: ListTile(
-                  title: Text(item.patientName, style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
-                  subtitle: Text("Result: ${item.formattedValue}", style: TextStyle(color: Colors.white)),
+                  title: Text(
+                    item.patientName,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  subtitle: Text(
+                    "Result: ${item.formattedValue}",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(color: Colors.white),
+                  ),
                   trailing: item.isCritical 
                     ? Icon(Icons.warning, color: Colors.white)
                     : null,
